@@ -17,6 +17,6 @@ class Fetcher
   end
 
   def self.app_id
-    "9eb386cd27ba4ce6b262857802357e46"
+    Rails.application.secrets.api_key
   end
 end

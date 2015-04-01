@@ -4,7 +4,7 @@ RSpec.configure do |config|
   end
 
   config.before :each do
-    stub_request(:get, "http://openexchangerates.org/api/latest.json?app_id=9eb386cd27ba4ce6b262857802357e46").
+    stub_request(:get, "http://openexchangerates.org/api/latest.json?app_id=#{Rails.application.secrets.api_key}").
       with(:headers => {'User-Agent'=>'Typhoeus - https://github.com/typhoeus/typhoeus'}).
       to_return(:status => 200, :body => File.read(Rails.root.join("spec/fixtures/latest.json")), :headers => {})
   end
