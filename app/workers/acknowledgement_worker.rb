@@ -6,5 +6,8 @@ class AcknowledgementWorker
 
     c = Currency.find_by(uuid: params.fetch(:uuid))
     c.toggle("consumer#{params.fetch(:id)}_ack")
+    c.save!
+
+    ack!
   end
 end
