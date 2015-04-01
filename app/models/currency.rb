@@ -1,6 +1,8 @@
 class Currency < ActiveRecord::Base
   before_create :set_uuid
 
+  scope :last_fetched, -> { order("created_at DESC").first }
+
   private
 
   def set_uuid
