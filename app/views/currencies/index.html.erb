@@ -1,0 +1,18 @@
+<table>
+  <tr>
+    <td>UUID</td>
+    <td>Consumer 1</td>
+    <td>Consumer 2</td>
+    <td>Consumer 3</td>
+    <td>Date</td>
+  </tr>
+  <% @currencies.each do |currency| %>
+    <tr>
+      <td><%= currency.uuid %></td>
+      <td><%= currency.consumer1_ack %></td>
+      <td><%= currency.consumer2_ack %></td>
+      <td><%= currency.consumer3_ack %></td>
+      <td><%= currency.created_at %></td>
+    </tr>
+  <% end %>
+</table>
