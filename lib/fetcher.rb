@@ -9,7 +9,8 @@ class Fetcher
   private
 
   def self.create_currency
-    Currency.create!(rates: JSON.parse(fetch_data.body)["rates"])
+    c = Currency.create!(rates: JSON.parse(fetch_data.body)["rates"])
+    { uuid: c.uuid, rates: c.rates }
   end
 
   def self.fetch_data

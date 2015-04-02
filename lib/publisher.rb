@@ -1,7 +1,7 @@
 class Publisher
   def self.publish
     message = Fetcher.fetch_currencies
-    queue("currencies").publish(message.to_json)
+    (1..3).each { |i| queue("currencies.queue_#{i}").publish(message.to_json) }
   end
 
   private
